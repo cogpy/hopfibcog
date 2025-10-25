@@ -76,7 +76,11 @@ export function demonstrateNeuralSymbolicIntegration(): void {
   console.log('=== Scenario 2: Neural-Symbolic Integration ===\n')
   
   const system = new CognitiveSystem()
-  const bridge = new NeuralSymbolicBridge({ embeddingDim: 32 })
+  const bridge = new NeuralSymbolicBridge({ 
+    embeddingDim: 32,
+    updateRate: 0.1,
+    symbolToSubSymbolicRatio: 0.5
+  })
 
   // Create symbolic knowledge
   const concepts = ['quantum', 'classical', 'transition', 'decoherence']
@@ -245,14 +249,11 @@ export function demonstrateAttentionalResonance(): void {
 // Scenario 5: Complete Inference Pipeline
 // ============================================================================
 
-export function demonstrateCompleteInference(): void {
-  console.log('=== Scenario 5: Complete Inference Pipeline ===\n')
-  
-  const integrated = new IntegratedCognitiveSystem()
-  const system = new CognitiveSystem()
-
-  // Initialize with Trinity Grammar
-  const trinity = {
+/**
+ * Creates example trinity grammar for fibonacci demonstration
+ */
+function createFibonacciTrinity() {
+  return {
     prologConstraints: [{
       head: 'fibonacci(N, F)',
       body: ['N > 1', 'N1 is N-1', 'N2 is N-2', 'fibonacci(N1, F1)', 'fibonacci(N2, F2)', 'F is F1+F2'],
@@ -271,6 +272,15 @@ export function demonstrateCompleteInference(): void {
       baseSpaceMapping: 2
     }]
   }
+}
+
+export function demonstrateCompleteInference(): void {
+  console.log('=== Scenario 5: Complete Inference Pipeline ===\n')
+  
+  const integrated = new IntegratedCognitiveSystem()
+
+  // Initialize with Trinity Grammar
+  const trinity = createFibonacciTrinity()
 
   integrated.initialize(trinity)
 

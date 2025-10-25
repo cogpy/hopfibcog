@@ -299,10 +299,10 @@ Patterns seek lower-energy states through:
 ## Future Directions
 
 1. **Meta-Optimizing Semantic Evolutionary Search (MOSES)**: Evolve new patterns and programs
-2. **Probabilistic Logic Networks (PLN)**: Full implementation of probabilistic inference
-3. **Learning**: Hebbian learning rules for link weights
-4. **Embeddings**: Learned semantic embeddings instead of random initialization
-5. **GGML Integration**: Real tensor library for neural substrate
+2. **Probabilistic Logic Networks (PLN)**: Full implementation of probabilistic inference rules
+3. **Learning**: Hebbian learning rules for adaptive link weights
+4. **Learned Embeddings**: Replace random initialization with trained semantic embeddings
+5. **Real GGML Integration**: Connect to actual ggml C++ library for high-performance tensor operations (currently uses TypedArrays as proof-of-concept)
 6. **Scheme Interpreter**: Execute actual Scheme code for functional transformations
 7. **Prolog Engine**: Real constraint solving for logical reasoning
 
