@@ -11,7 +11,8 @@ import { FibrationCard } from '@/components/FibrationCard'
 import { CodeView } from '@/components/CodeView'
 import { TrinityView } from '@/components/TrinityView'
 import { HopfVisualization } from '@/components/HopfVisualization'
-import { ArrowUp, ArrowDown, Cube, Note, GitBranch } from '@phosphor-icons/react'
+import { CognitiveVisualizer } from '@/components/CognitiveVisualizer'
+import { ArrowUp, ArrowDown, Cube, Note, GitBranch, Brain } from '@phosphor-icons/react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { toast, Toaster } from 'sonner'
 
@@ -80,7 +81,11 @@ function App() {
         </motion.div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
-          <TabsList className="grid w-full grid-cols-3 max-w-md mx-auto">
+          <TabsList className="grid w-full grid-cols-4 max-w-2xl mx-auto">
+            <TabsTrigger value="cognitive" className="gap-2">
+              <Brain size={16} weight="duotone" />
+              Cognitive
+            </TabsTrigger>
             <TabsTrigger value="explorer" className="gap-2">
               <GitBranch size={16} weight="bold" />
               Explorer
@@ -94,6 +99,10 @@ function App() {
               3D View
             </TabsTrigger>
           </TabsList>
+
+          <TabsContent value="cognitive">
+            <CognitiveVisualizer level={selectedLevel ?? 1} />
+          </TabsContent>
 
           <TabsContent value="explorer" className="space-y-8">
             <Card className="bg-card/80 backdrop-blur">
